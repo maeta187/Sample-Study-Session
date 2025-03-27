@@ -53,6 +53,7 @@ export default defineConfig([
 			'import/order': [
 				'error',
 				{
+					// 自動並び替えとバッティングするので糖度調整
 					groups: [
 						'type',
 						'builtin',
