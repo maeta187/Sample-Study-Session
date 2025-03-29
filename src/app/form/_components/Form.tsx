@@ -46,10 +46,8 @@ export const Form = ({ prefectures }: FormProps) => {
 		}, 3000)
 	}
 	return (
-		<div className='mx-auto w-2xl rounded-lg bg-white p-6 shadow-2xl'>
-			<h2 className='mb-6 text-center text-2xl font-bold text-gray-800'>
-				コンタクトフォーム
-			</h2>
+		<div>
+			<h2>コンタクトフォーム</h2>
 			<InputForm
 				formData={formData}
 				prefectures={prefectures}

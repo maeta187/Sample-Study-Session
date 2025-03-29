@@ -14,7 +14,7 @@ export default async function Page() {
 		return
 	}
 	return (
-		<div className='flex h-screen items-center justify-center'>
+		<div>
 			<Form prefectures={prefectures} />
 		</div>
 	)
