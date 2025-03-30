@@ -7,7 +7,7 @@ type FormProps = {
 	prefectures: Prefecture[]
 }
 
-const initialFormData: FormData = {
+const defaultValues: FormData = {
 	lastName: '',
 	firstName: '',
 	email: '',
