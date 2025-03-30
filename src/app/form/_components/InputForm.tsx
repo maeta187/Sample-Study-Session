@@ -10,6 +10,7 @@ type InputFormProps = {
 		>
 	) => void
 	handleSubmit: (e: React.FormEvent) => void
+	handleReset: () => void
 }
 
 export const InputForm = ({
@@ -17,7 +18,8 @@ export const InputForm = ({
 	prefectures,
 	pending,
 	handleChange,
-	handleSubmit
+	handleSubmit,
+	handleReset
 }: InputFormProps) => {
 	return (
 		<form onSubmit={handleSubmit}>
@@ -128,7 +130,14 @@ export const InputForm = ({
 				></textarea>
 			</div>
 
-			<button type='submit'>{pending ? '送信中...' : '送信'}</button>
+			<div>
+				<button type='button' disabled={pending} onClick={handleReset}>
+					リセット
+				</button>
+				<button type='submit' disabled={pending}>
+					{pending ? '送信中...' : '送信'}
+				</button>
+			</div>
 		</form>
 	)
 }

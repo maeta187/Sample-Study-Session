@@ -7,16 +7,18 @@ type FormProps = {
 	prefectures: Prefecture[]
 }
 
+const initialFormData: FormData = {
+	lastName: '',
+	firstName: '',
+	email: '',
+	sex: '',
+	prefecture: '',
+	message: ''
+}
+
 export const Form = ({ prefectures }: FormProps) => {
 	// e.target.valueがString型であるため、全てString型
-	const [formData, setFormData] = useState<FormData>({
-		lastName: '',
-		firstName: '',
-		email: '',
-		sex: '',
-		prefecture: '',
-		message: ''
-	})
+	const [formData, setFormData] = useState<FormData>(initialFormData)
 
 	// pendingの状態管理
 	const [pending, setPending] = useState(false)
@@ -45,6 +47,11 @@ export const Form = ({ prefectures }: FormProps) => {
 			setPending(false)
 		}, 3000)
 	}
+
+	const handleReset = () => {
+		setFormData(initialFormData)
+	}
+
 	return (
 		<div>
 			<h2>コンタクトフォーム</h2>
@@ -54,6 +61,7 @@ export const Form = ({ prefectures }: FormProps) => {
 				pending={pending}
 				handleChange={handleChange}
 				handleSubmit={handleSubmit}
+				handleReset={handleReset}
 			/>
 		</div>
 	)
