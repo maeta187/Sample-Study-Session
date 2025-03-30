@@ -126,7 +126,7 @@ export const InputForm = ({
 					value={formData.message}
 					onChange={handleChange}
 					rows={4}
-					placeholder='Your message here...'
+					placeholder='ここにメッセージを入力してください'
 				></textarea>
 			</div>
 
