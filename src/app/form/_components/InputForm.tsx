@@ -10,6 +10,7 @@ type InputFormProps = {
 		>
 	) => void
 	handleSubmit: (e: React.FormEvent) => void
+	handleReset: () => void
 }
 
 export const InputForm = ({
@@ -17,7 +18,8 @@ export const InputForm = ({
 	prefectures,
 	pending,
 	handleChange,
-	handleSubmit
+	handleSubmit,
+	handleReset
 }: InputFormProps) => {
 	return (
 		<form onSubmit={handleSubmit} className='space-y-4'>
@@ -163,12 +165,23 @@ export const InputForm = ({
 				></textarea>
 			</div>
 
-			<button
-				type='submit'
-				className='w-full rounded-md bg-blue-600 px-4 py-2 text-white transition-colors hover:bg-blue-700 focus:ring-2'
-			>
-				{pending ? '送信中...' : '送信'}
-			</button>
+			<div className='flex justify-between'>
+				<button
+					type='button'
+					className='w-2xs rounded-md bg-red-600 px-4 py-2 text-white transition-colors hover:bg-red-700 focus:ring-2'
+					disabled={pending}
+					onClick={handleReset}
+				>
+					リセット
+				</button>
+				<button
+					type='submit'
+					className={`w-2xs rounded-md ${pending ? 'bg-blue-700' : 'bg-blue-600'} px-4 py-2 text-white transition-colors hover:bg-blue-700 focus:ring-2`}
+					disabled={pending}
+				>
+					{pending ? '送信中...' : '送信'}
+				</button>
+			</div>
 		</form>
 	)
 }
