@@ -161,7 +161,7 @@ export const InputForm = ({
 					onChange={handleChange}
 					rows={4}
 					className='w-full rounded-md border border-gray-300 px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none'
-					placeholder='Your message here...'
+					placeholder='ここにメッセージを入力してください'
 				></textarea>
 			</div>
 
