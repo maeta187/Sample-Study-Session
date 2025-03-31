@@ -88,9 +88,9 @@ export const InputForm = ({
 				<label>
 					<input
 						type='radio'
-						name='sex'
+						name='gender'
 						value='men'
-						checked={formData.sex === 'men'}
+						checked={formData.gender === 'men'}
 						onChange={handleChange}
 					/>
 					<span>男性</span>
@@ -98,9 +98,9 @@ export const InputForm = ({
 				<label>
 					<input
 						type='radio'
-						name='sex'
+						name='gender'
 						value='woman'
-						checked={formData.sex === 'woman'}
+						checked={formData.gender === 'woman'}
 						onChange={handleChange}
 					/>
 					<span>女性</span>
@@ -108,9 +108,9 @@ export const InputForm = ({
 				<label>
 					<input
 						type='radio'
-						name='sex'
+						name='gender'
 						value='other'
-						checked={formData.sex === 'other'}
+						checked={formData.gender === 'other'}
 						onChange={handleChange}
 					/>
 					<span>その他</span>
