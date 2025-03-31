@@ -39,7 +39,7 @@ export const Form = ({ prefectures }: FormProps) => {
 	}
 
 	const handleReset = () => {
-		setFormData(initialFormData)
+		reset()
 	}
 
 	return (
