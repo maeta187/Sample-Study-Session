@@ -11,7 +11,7 @@ const initialFormData: FormData = {
 	lastName: '',
 	firstName: '',
 	email: '',
-	sex: '',
+	gender: '',
 	prefecture: '',
 	message: ''
 }

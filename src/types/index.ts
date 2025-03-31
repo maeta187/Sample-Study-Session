@@ -7,7 +7,7 @@ export type FormData = {
 	lastName: string
 	firstName: string
 	email: string
-	sex: string
+	gender: string
 	prefecture: string
 	message: string
 }

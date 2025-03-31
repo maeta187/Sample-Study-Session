@@ -114,9 +114,9 @@ export const InputForm = ({
 				<label className='inline-flex items-center'>
 					<input
 						type='radio'
-						name='sex'
+						name='gender'
 						value='men'
-						checked={formData.sex === 'men'}
+						checked={formData.gender === 'men'}
 						onChange={handleChange}
 						className='form-radio text-blue-500'
 					/>
@@ -125,9 +125,9 @@ export const InputForm = ({
 				<label className='inline-flex items-center'>
 					<input
 						type='radio'
-						name='sex'
+						name='gender'
 						value='woman'
-						checked={formData.sex === 'woman'}
+						checked={formData.gender === 'woman'}
 						onChange={handleChange}
 						className='form-radio text-blue-500'
 					/>
@@ -136,9 +136,9 @@ export const InputForm = ({
 				<label className='inline-flex items-center'>
 					<input
 						type='radio'
-						name='sex'
+						name='gender'
 						value='other'
-						checked={formData.sex === 'other'}
+						checked={formData.gender === 'other'}
 						onChange={handleChange}
 						className='form-radio text-blue-500'
 					/>
