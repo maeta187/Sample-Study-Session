@@ -168,7 +168,7 @@ export const InputForm = ({
 			<div className='flex justify-between'>
 				<button
 					type='button'
-					className='w-2xs rounded-md bg-red-600 px-4 py-2 text-white transition-colors hover:bg-red-700 focus:ring-2'
+					className='w-2xs rounded-md border border-blue-600 bg-white px-4 py-2 text-blue-600 transition-colors hover:border-blue-700 hover:bg-gray-50 focus:ring-2'
 					disabled={pending}
 					onClick={handleReset}
 				>
