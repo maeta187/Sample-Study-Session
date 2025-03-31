@@ -160,7 +160,7 @@ export const InputForm = ({
 				</button>
 				<button
 					type='submit'
-					className={`w-2xs rounded-md ${pending ? 'bg-blue-700' : 'bg-blue-600'} px-4 py-2 text-white transition-colors hover:bg-blue-700 focus:ring-2`}
+					className={`w-2xs rounded-md ${pending ? 'opacity-50' : 'opacity-100'} bg-blue-600 px-4 py-2 text-white transition-colors hover:bg-blue-700 focus:ring-2`}
 					disabled={pending}
 				>
 					{pending ? '送信中...' : '送信'}
