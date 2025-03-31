@@ -31,10 +31,10 @@ export const Form = ({ prefectures }: FormProps) => {
 	// サブミット関数
 	const onSubmit: SubmitHandler<FormData> = async (data) => {
 		await new Promise((resolve) =>
-		setTimeout(() => {
+			setTimeout(() => {
 				console.log('Form submitted:', data)
 				resolve('Success')
-		}, 3000)
+			}, 3000)
 		)
 	}
 
@@ -48,7 +48,6 @@ export const Form = ({ prefectures }: FormProps) => {
 				コンタクトフォーム
 			</h2>
 			<InputForm
-				formData={formData}
 				prefectures={prefectures}
 				register={register}
 				pending={isSubmitting}
