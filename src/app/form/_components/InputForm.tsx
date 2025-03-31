@@ -21,6 +21,7 @@ export const InputForm = ({
 	handleSubmit,
 	handleReset
 }: InputFormProps) => {
+	console.log('フォームがレンダリングされました')
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
 			{/* 姓 */}
