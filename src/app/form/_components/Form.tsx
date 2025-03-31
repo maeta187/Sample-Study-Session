@@ -7,6 +7,7 @@ type FormProps = {
 	prefectures: Prefecture[]
 }
 
+// e.target.valueがString型であるため、全てString型
 const initialFormData: FormData = {
 	lastName: '',
 	firstName: '',
@@ -17,7 +18,7 @@ const initialFormData: FormData = {
 }
 
 export const Form = ({ prefectures }: FormProps) => {
-	// e.target.valueがString型であるため、全てString型
+	// 1つのStateで一元管理
 	const [formData, setFormData] = useState<FormData>(initialFormData)
 
 	// pendingの状態管理
@@ -40,15 +41,19 @@ export const Form = ({ prefectures }: FormProps) => {
 
 	// サブミット関数
 	const handleSubmit = (e: React.FormEvent) => {
+		// デフォルトのイベントをキャンセル
 		e.preventDefault()
+		// 送信中の状態にする
 		setPending(true)
 		setTimeout(() => {
 			console.log('Form submitted:', formData)
+			// 送信中の状態を解除
 			setPending(false)
 		}, 3000)
 	}
 
 	const handleReset = () => {
+		// フォームデータを初期化
 		setFormData(initialFormData)
 	}
 
