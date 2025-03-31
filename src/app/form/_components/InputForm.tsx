@@ -1,28 +1,28 @@
+import { GENDER } from '@/constants'
 import { FormData, Prefecture } from '@/types'
+import { SubmitHandler, UseFormRegister } from 'react-hook-form'
 
 type InputFormProps = {
-	formData: FormData
 	prefectures: Prefecture[]
+	register: UseFormRegister<FormData>
 	pending: boolean
-	handleChange: (
-		e: React.ChangeEvent<
-			HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-		>
-	) => void
-	handleSubmit: (e: React.FormEvent) => void
+	onSubmit: SubmitHandler<FormData>
+	handleSubmit: (
+		onValid: SubmitHandler<FormData>
+	) => (e?: React.BaseSyntheticEvent) => Promise<void>
 	handleReset: () => void
 }
 
 export const InputForm = ({
-	formData,
 	prefectures,
 	pending,
-	handleChange,
+	register,
+	onSubmit,
 	handleSubmit,
 	handleReset
 }: InputFormProps) => {
 	return (
-		<form onSubmit={handleSubmit} className='space-y-4'>
+		<form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
 			{/* 姓 */}
 			<div>
 				<label
@@ -34,9 +34,7 @@ export const InputForm = ({
 				<input
 					type='text'
 					id='last-name'
-					name='lastName'
-					value={formData.lastName}
-					onChange={handleChange}
+					{...register('lastName')}
 					className='w-full rounded-md border border-gray-300 px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none'
 					placeholder='山田'
 				/>
@@ -53,9 +51,7 @@ export const InputForm = ({
 				<input
 					type='text'
 					id='first-name'
-					name='firstName'
-					value={formData.firstName}
-					onChange={handleChange}
+					{...register('firstName')}
 					className='w-full rounded-md border border-gray-300 px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none'
 					placeholder='太郎'
 				/>
@@ -72,9 +68,7 @@ export const InputForm = ({
 				<input
 					type='email'
 					id='email'
-					name='email'
-					value={formData.email}
-					onChange={handleChange}
+					{...register('email')}
 					className='w-full rounded-md border border-gray-300 px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none'
 					placeholder='yamada@example.com'
 				/>
@@ -90,9 +84,7 @@ export const InputForm = ({
 				</label>
 				<select
 					id='prefecture'
-					name='prefecture'
-					value={formData.prefecture}
-					onChange={handleChange}
+					{...register('prefecture')}
 					className='w-full rounded-md border border-gray-300 bg-white px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none'
 				>
 					<option value={''} disabled>
@@ -114,10 +106,8 @@ export const InputForm = ({
 				<label className='inline-flex items-center'>
 					<input
 						type='radio'
-						name='sex'
-						value='men'
-						checked={formData.sex === 'men'}
-						onChange={handleChange}
+						value={GENDER.MEN}
+						{...register('gender')}
 						className='form-radio text-blue-500'
 					/>
 					<span className='ml-2'>男性</span>
@@ -125,10 +115,8 @@ export const InputForm = ({
 				<label className='inline-flex items-center'>
 					<input
 						type='radio'
-						name='sex'
-						value='woman'
-						checked={formData.sex === 'woman'}
-						onChange={handleChange}
+						value={GENDER.WOMEN}
+						{...register('gender')}
 						className='form-radio text-blue-500'
 					/>
 					<span className='ml-2'>女性</span>
@@ -136,10 +124,8 @@ export const InputForm = ({
 				<label className='inline-flex items-center'>
 					<input
 						type='radio'
-						name='sex'
-						value='other'
-						checked={formData.sex === 'other'}
-						onChange={handleChange}
+						value={GENDER.OTHER}
+						{...register('gender')}
 						className='form-radio text-blue-500'
 					/>
 					<span className='ml-2'>その他</span>
@@ -156,9 +142,7 @@ export const InputForm = ({
 				</label>
 				<textarea
 					id='message'
-					name='message'
-					value={formData.message}
-					onChange={handleChange}
+					{...register('message')}
 					rows={4}
 					className='w-full rounded-md border border-gray-300 px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none'
 					placeholder='ここにメッセージを入力してください'
