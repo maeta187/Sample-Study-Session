@@ -50,8 +50,9 @@ export const Form = ({ prefectures }: FormProps) => {
 			<InputForm
 				formData={formData}
 				prefectures={prefectures}
-				pending={pending}
-				handleChange={handleChange}
+				register={register}
+				pending={isSubmitting}
+				onSubmit={onSubmit}
 				handleSubmit={handleSubmit}
 				handleReset={handleReset}
 			/>
