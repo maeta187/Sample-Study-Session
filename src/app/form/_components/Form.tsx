@@ -29,13 +29,13 @@ export const Form = ({ prefectures }: FormProps) => {
 	// バリデーション処理
 
 	// サブミット関数
-	const handleSubmit = (e: React.FormEvent) => {
-		e.preventDefault()
-		setPending(true)
+	const onSubmit: SubmitHandler<FormData> = async (data) => {
+		await new Promise((resolve) =>
 		setTimeout(() => {
-			console.log('Form submitted:', formData)
-			setPending(false)
+				console.log('Form submitted:', data)
+				resolve('Success')
 		}, 3000)
+		)
 	}
 
 	const handleReset = () => {
