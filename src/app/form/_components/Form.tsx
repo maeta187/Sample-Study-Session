@@ -21,7 +21,7 @@ export const Form = ({ prefectures }: FormProps) => {
 		register,
 		handleSubmit,
 		reset,
-		formState: { isSubmitting }
+		formState: { isSubmitting, errors }
 	} = useForm<FormData>({
 		defaultValues
 	})
@@ -50,6 +50,7 @@ export const Form = ({ prefectures }: FormProps) => {
 			<InputForm
 				prefectures={prefectures}
 				register={register}
+				errors={errors}
 				pending={isSubmitting}
 				onSubmit={onSubmit}
 				handleSubmit={handleSubmit}
