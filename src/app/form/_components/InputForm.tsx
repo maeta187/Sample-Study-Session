@@ -37,17 +37,7 @@ export const InputForm = ({
 				<input
 					type='text'
 					id='last-name'
-					{...register('lastName', {
-						required: '姓は必須です', // 必須バリデーション
-						minLength: {
-							value: 2,
-							message: '姓は2文字以上で入力してください' // 最小文字数バリデーション
-						},
-						maxLength: {
-							value: 20,
-							message: '姓は20文字以内で入力してください' // 最大文字数バリデーション
-						}
-					})}
+					{...register('lastName')}
 					className={`w-full rounded-md border ${errors?.lastName ? 'border-red-500' : 'border-gray-300'} px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none`}
 					placeholder='山田'
 				/>
@@ -67,17 +57,7 @@ export const InputForm = ({
 				<input
 					type='text'
 					id='first-name'
-					{...register('firstName', {
-						required: '名は必須です', // 必須バリデーション
-						minLength: {
-							value: 2,
-							message: '姓は2文字以上で入力してください' // 最小文字数バリデーション
-						},
-						maxLength: {
-							value: 20,
-							message: '姓は20文字以内で入力してください' // 最大文字数バリデーション
-						}
-					})}
+					{...register('firstName')}
 					className={`w-full rounded-md border ${errors?.firstName ? 'border-red-500' : 'border-gray-300'} px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none`}
 					placeholder='太郎'
 				/>
@@ -97,14 +77,8 @@ export const InputForm = ({
 				<input
 					type='email'
 					id='email'
-					{...register('email', {
-						required: 'メールアドレスは必須です', // 必須バリデーション
-						pattern: {
-							value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, // メールアドレスの正規表現
-							message: '有効なメールアドレスを入力してください'
-						}
-					})}
-					className={`w-full rounded-md border ${errors?.firstName ? 'border-red-500' : 'border-gray-300'} px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none`}
+					{...register('email')}
+					className={`w-full rounded-md border ${errors?.email ? 'border-red-500' : 'border-gray-300'} px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none`}
 					placeholder='yamada@example.com'
 				/>
 				<p className='mt-0.5 min-h-7 text-sm text-red-500'>
@@ -125,7 +99,7 @@ export const InputForm = ({
 					{...register('prefecture', {
 						required: '都道府県は必須です' // 必須バリデーション
 					})}
-					className={`w-full rounded-md border ${errors?.firstName ? 'border-red-500' : 'border-gray-300'} px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none`}
+					className={`w-full rounded-md border ${errors?.prefecture ? 'border-red-500' : 'border-gray-300'} px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none`}
 				>
 					<option value={''} disabled>
 						選択してください
@@ -147,31 +121,19 @@ export const InputForm = ({
 					性別
 				</label>
 				<label className='inline-flex items-center'>
-					<input
-						type='radio'
-						value={GENDER.MEN}
-						{...register('gender', { required: '性別は必須です' })} // 必須バリデーション						className='form-radio text-blue-500'
-					/>
+					<input type='radio' value={GENDER.MEN} {...register('gender')} />
 					<span className='ml-2'>男性</span>
 				</label>
 				<label className='inline-flex items-center'>
-					<input
-						type='radio'
-						value={GENDER.WOMEN}
-						{...register('gender', { required: '性別は必須です' })} // 必須バリデーション						className='form-radio text-blue-500'
-					/>
+					<input type='radio' value={GENDER.WOMEN} {...register('gender')} />
 					<span className='ml-2'>女性</span>
 				</label>
 				<label className='inline-flex items-center'>
-					<input
-						type='radio'
-						value={GENDER.OTHER}
-						{...register('gender', { required: '性別は必須です' })} // 必須バリデーション						className='form-radio text-blue-500'
-					/>
+					<input type='radio' value={GENDER.OTHER} {...register('gender')} />
 					<span className='ml-2'>その他</span>
 				</label>
 				<p className='mt-0.5 min-h-7 text-sm text-red-500'>
-					{errors?.prefecture?.message} {/* エラーメッセージの表示 */}
+					{errors?.gender?.message} {/* エラーメッセージの表示 */}
 				</p>
 			</div>
 
@@ -185,12 +147,7 @@ export const InputForm = ({
 				</label>
 				<textarea
 					id='message'
-					{...register('message', {
-						maxLength: {
-							value: 50,
-							message: '備考は50文字以内で入力してください' // 最大文字数バリデーション
-						}
-					})}
+					{...register('message')}
 					rows={4}
 					className={`w-full rounded-md border ${errors?.message ? 'border-red-500' : 'border-gray-300'} px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none`}
 					placeholder='ここにメッセージを入力してください'
