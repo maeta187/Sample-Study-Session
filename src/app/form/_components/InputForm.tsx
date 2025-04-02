@@ -96,9 +96,7 @@ export const InputForm = ({
 				</label>
 				<select
 					id='prefecture'
-					{...register('prefecture', {
-						required: '都道府県は必須です' // 必須バリデーション
-					})}
+					{...register('prefecture')}
 					className={`w-full rounded-md border ${errors?.prefecture ? 'border-red-500' : 'border-gray-300'} px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none`}
 				>
 					<option value={''} disabled>
