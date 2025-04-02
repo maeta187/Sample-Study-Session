@@ -1,6 +1,8 @@
 'use client'
 import { InputForm } from '@/app/form/_components/InputForm'
+import { formSchema } from '@/schemas'
 import type { FormData, Prefecture } from '@/types'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 type FormProps = {
@@ -23,10 +25,9 @@ export const Form = ({ prefectures }: FormProps) => {
 		reset,
 		formState: { isSubmitting, errors }
 	} = useForm<FormData>({
-		defaultValues
+		defaultValues,
+		resolver: zodResolver(formSchema)
 	})
-
-	// バリデーション処理
 
 	// サブミット関数
 	const onSubmit: SubmitHandler<FormData> = async (data) => {
