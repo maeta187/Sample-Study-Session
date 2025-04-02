@@ -104,7 +104,7 @@ export const InputForm = ({
 							message: '有効なメールアドレスを入力してください'
 						}
 					})}
-					className={`w-full rounded-md border ${errors?.firstName ? 'border-red-500' : 'border-gray-300'} px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none`}
+					className={`w-full rounded-md border ${errors?.email ? 'border-red-500' : 'border-gray-300'} px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none`}
 					placeholder='yamada@example.com'
 				/>
 				<p className='mt-0.5 min-h-7 text-sm text-red-500'>
@@ -125,7 +125,7 @@ export const InputForm = ({
 					{...register('prefecture', {
 						required: '都道府県は必須です' // 必須バリデーション
 					})}
-					className={`w-full rounded-md border ${errors?.firstName ? 'border-red-500' : 'border-gray-300'} px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none`}
+					className={`w-full rounded-md border ${errors?.prefecture ? 'border-red-500' : 'border-gray-300'} px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none`}
 				>
 					<option value={''} disabled>
 						選択してください
@@ -171,7 +171,7 @@ export const InputForm = ({
 					<span className='ml-2'>その他</span>
 				</label>
 				<p className='mt-0.5 min-h-7 text-sm text-red-500'>
-					{errors?.prefecture?.message} {/* エラーメッセージの表示 */}
+					{errors?.gender?.message} {/* エラーメッセージの表示 */}
 				</p>
 			</div>
 
