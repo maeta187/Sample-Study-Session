@@ -1,8 +1,4 @@
-type Gender = {
-	MEN: 'men'
-	WOMEN: 'women'
-	OTHER: 'other'
-}
+import { Gender } from '@/types'
 
 /** 性別 */
 export const GENDER: Readonly<Gender> = {

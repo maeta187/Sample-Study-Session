@@ -6,4 +6,10 @@ export type Prefecture = {
 	name: string
 }
 
+export type Gender = {
+	MEN: 'men'
+	WOMEN: 'women'
+	OTHER: 'other'
+}
+
 export type FormData = z.infer<typeof formSchema>
